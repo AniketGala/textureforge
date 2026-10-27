@@ -2,6 +2,10 @@
 
 TextureForge is a React/Vite texture editor backed by an Express/TypeScript REST API, Prisma 6.19.0, and PostgreSQL. The repository has one root `package.json` and lockfile; `frontend/` is the Vite app root, and `src/` is the API root.
 
+## Submission
+
+[Watch the TextureForge submission video](https://drive.google.com/file/d/1uBVLbLxdgdOlo0XaNavA37yk1nKcY8AU/view?usp=drive_link).
+
 ## Requirements and local setup
 
 - Node.js `>=20.19 <25` and npm.
@@ -87,7 +91,7 @@ This runs `prisma migrate deploy`; it does not reset the database or create a ne
 
 ## Production deployment
 
-Deploy the API and static frontend as separate services. No deployment account or repository publishing has been performed.
+Deploy the API and static frontend as separate services. The source repository is [on GitHub](https://github.com/AniketGala/textureforge), the frontend is [deployed on Vercel](https://textureforge.vercel.app/), and the API is [deployed on Render](https://textureforge-bjom.onrender.com/).
 
 ### Render API service
 
