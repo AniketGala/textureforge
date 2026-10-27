@@ -1,0 +1,14 @@
+import express from "express";
+import cors from "cors";
+import { presetsRouter } from "./routes/presets";
+import { projectsRouter } from "./routes/projects";
+import { errorHandler, notFound } from "./middleware/errors";
+export const app = express();
+const corsOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5173,http://localhost:5174").split(",").map((v) => v.trim()).filter(Boolean);
+app.use(cors({ origin: corsOrigins.length === 1 ? corsOrigins[0] : corsOrigins }));
+app.use(express.json());
+app.get("/api/health", (_req, res) => res.json({ status: "ok", service: "textureforge-api" }));
+app.use("/api/presets", presetsRouter);
+app.use("/api/projects", projectsRouter);
+app.use(notFound);
+app.use(errorHandler);
